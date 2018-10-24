@@ -82,4 +82,20 @@ variable "dev" {
 }
  
  
+ 13. Create count.tf file and add the following to that 
+ variable  "instance_count" {
+	default = 1  #10
+}
+Inside the terraform.tf file add the following 
+count         = "${var.instance_count}"
+
+This will create the default number of instance for us. 
+Pay attention to tag
+
+tags {
+    ENVIRONMENT = "Dev-${count.index}"
+  }
+This will create Dev-1  tag on the instances.
+
+ 
  
