@@ -15,3 +15,41 @@ resource "aws_key_pair" "my_key" {
  7. Create an instance with userdata
  
          user_data = "${file("user_data")}"
+
+
+
+8. Create an instance with vars inside the file like this
+
+variable "ami" {
+  default = "ami-oololol"
+  }
+and use it inside the instance block 
+
+resource "aws_instance" "my-instance" {
+	ami	=	"${var.ami}"
+  
+  
+9. Create a vars.tf file with the ami names from AWS 
+variable "awsami" {
+  default = "ami-slsldfldfld" 
+}
+
+variable "centos7" {
+  default = "centos-ami-dlldldl"
+  }
+  
+use it inside the file 
+resource "aws_instance" "my-instance" {
+	ami	=	"${var.ami}"
+  
+  
+ 10. 
+ Create a variable with
+ variable "micro" {
+  default = "t2.micro"
+  }
+
+ use it inside the file 
+ 
+ 
+ 
