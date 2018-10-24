@@ -74,6 +74,12 @@ variable "dev" {
 	}
  
  
+ 12. Use terraform provider file instead of same place. 
+ vim provider.tf
+ 
+ provider "aws" {
+  region = "us-east-2"
+}
  
  
  
