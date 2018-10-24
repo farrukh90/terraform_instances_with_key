@@ -52,4 +52,16 @@ resource "aws_instance" "my-instance" {
  use it inside the file 
  
  
+ 11. Use count option to create multiple instances on aws 
+ resource "aws_instance" "my-instance" {
+	ami	=	"${var.ami}"
+	instance_type	=	"t2.micro"
+        key_name = "{var.my_key}"
+        user_data = "${file("user_data")}"
+        count = 4
+	}
+ 
+ 
+ 
+ 
  
