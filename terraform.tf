@@ -1,6 +1,4 @@
-provider "aws" {
-	region = "us-east-5"
-}
+
 resource "aws_key_pair" "name" {
   	key_name = "name"
         public_key = ""       or    "${file("public_key")}"
