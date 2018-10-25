@@ -98,4 +98,22 @@ tags {
 This will create Dev-1  tag on the instances.
 
  
- 
+ ______________________________________________________________________________________________________________ 
+Terraform import 
+
+The reason: 
+   If the environment is created by terraform, but some user also creates an instance on the same region. If that same environment needs to be provisioned on new region, terraform skips the instance that user created from console. Because that instance is not managed by terraform. To avoid this, we have to import the instance to terraform. 
+   
+Usage. 
+Declare the instance on terraform file. 
+resource "aws_instance"  "name_of_the_instance" {
+	ami = ""
+}
+
+
+From the command line 
+terraform import aws_instance.name_of_the_instance   i-10dl10dl40dlsl   
+
+
+This command updates the terraform state file. Next time when the environment built it will create all the instance. 
+
