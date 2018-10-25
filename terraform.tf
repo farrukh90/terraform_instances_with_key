@@ -9,6 +9,6 @@ esource "aws_instance" "my-instance" {
   user_data     = "${file("user_data")}"
   count		= "${var.instance_count}"
   tags {
-    Environment = "dev-${"count.index +1}"
+    Environment = "dev-${"count.index +1}"         # or "dev-${"count.index }"
   }
 }
